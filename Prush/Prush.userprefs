@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SimpleFollow.cs">
+    <Files>
+      <File FileName="Assets/Scripts/NPCandPlayerMovement.cs" Line="47" Column="143" />
+      <File FileName="Assets/Scripts/PointCameraAtMe.cs" Line="7" Column="30" />
+      <File FileName="Assets/Scripts/ArtificialIntelligenceBrain.cs" Line="6" Column="45" />
+      <File FileName="Assets/Scripts/SimpleFollow.cs" Line="17" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
