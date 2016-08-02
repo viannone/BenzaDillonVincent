@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.js">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerMovement.js" Line="8" Column="23" />
+      <File FileName="Assets/Scripts/Teleporter.js" Line="12" Column="18" />
+      <File FileName="Assets/Scripts/BackgroundBlockBehavior.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/OnClickLoadLevel.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameStart.js" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
