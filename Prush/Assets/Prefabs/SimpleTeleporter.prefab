@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012665331598}
   - 212: {fileID: 212000011260901766}
+  - 114: {fileID: 114000010377364844}
   m_Layer: 0
   m_Name: PortalBlue
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011123024166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6, y: 1.6019297, z: 0}
+  m_LocalPosition: {x: -3.6547117, y: 8.386242, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -98,7 +99,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTeleporter: {fileID: 0}
   coolDown: 1
-  coolDownTimer: 0
+  coolDownTimer: 15.500165
+--- !u!114 &114000010377364844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013710017960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd43bee8e04d24246b4d093a33ec0451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: d6f63cda988984c54924716b1a0d8292, type: 3}
+  - {fileID: 21300000, guid: 2bbcf3843ae0e4fa9aaf76d40e5cd672, type: 3}
 --- !u!212 &212000011260901766
 SpriteRenderer:
   m_ObjectHideFlags: 1

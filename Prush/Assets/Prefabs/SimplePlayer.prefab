@@ -26,7 +26,6 @@ GameObject:
   - 114: {fileID: 114000010849110044}
   - 114: {fileID: 114000011379303300}
   - 114: {fileID: 114000010600761546}
-  - 114: {fileID: 114000011641397366}
   m_Layer: 0
   m_Name: SimplePlayer
   m_TagString: Player
@@ -150,23 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   horizontalSpeed: 5
-  jumpHeight: 10
+  jumpVelocity: 10
   jumpCooldownTime: 1
   onGround: 0
   yOffset: 1.05
-  xInput: 0
+  xInput: 10
   yInput: 0
   boxCastWidth: 1
   boxCastDistance: 0.01
---- !u!114 &114000011641397366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011445560000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a38ef0f1120454d8139af0b2404229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}

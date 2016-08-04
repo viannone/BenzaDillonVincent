@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 32c2bb75f491e4e9483dbffe991bd54d
-timeCreated: 1470294819
+guid: 73a833cab39e348d7af5644144e167a2
+timeCreated: 1470295229
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -42,8 +42,8 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.4776576, y: 0.8905545}
-  spriteBorder: {x: 18, y: 284, z: 59, w: 40}
+  spritePivot: {x: 0.5266385, y: 0.7694611}
+  spriteBorder: {x: 33, y: 261, z: 0, w: 65}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -51,7 +51,20 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Grass3_0
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 101
+        width: 226
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

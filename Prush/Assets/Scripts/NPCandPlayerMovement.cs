@@ -4,8 +4,8 @@ using System.Collections;
 public class NPCandPlayerMovement : MonoBehaviour {
 	public Rigidbody2D rigi;
 	public int horizontalSpeed;
-	public int jumpHeight;
-	private float jumpTimer;
+	public int jumpVelocity;
+	public float jumpTimer;
 	public int jumpCooldownTime;
 	public bool onGround;
 
@@ -22,6 +22,9 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigi = GetComponent<Rigidbody2D> ();
+
+		//so you can jump immediately upon instantiation
+		jumpTimer = jumpCooldownTime;
 	}
 
 	void FixedUpdate () {
@@ -30,7 +33,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 		rigi.velocity = new Vector2 (xInput * horizontalSpeed, rigi.velocity.y);
 		if (yInput > 0) {
 			if (onGround) {
-				if (jumpTimer > jumpCooldownTime) {
+				if (jumpTimer >= jumpCooldownTime) {
 					Jump ();
 				}
 			}
@@ -53,7 +56,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	}
 
 	public void Jump(){
-		rigi.velocity = new Vector2 (xInput * horizontalSpeed, jumpHeight);
+		rigi.velocity = new Vector2 (xInput * horizontalSpeed, jumpVelocity);
 		ResetTimer ();
 	}
 	public void ResetTimer(){

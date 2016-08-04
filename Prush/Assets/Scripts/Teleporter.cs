@@ -5,18 +5,19 @@ public class Teleporter : MonoBehaviour {
 	public Teleporter targetTeleporter;
 	public int coolDown;
 	public float coolDownTimer;
+	private SpriteRenderer sp;
+	private SpriteBank sb;
+	private bool teleportReady;
 
 	public void Start(){
+		SetTeleportReady (true);
 		coolDownTimer = coolDown;
-	}
-
-	public void FixedUpdate(){
-		coolDownTimer += Time.deltaTime;
+		sp = GetComponentInChildren<SpriteRenderer> ();
+		sb = GetComponentInChildren<SpriteBank> ();
 	}
 
 	public void OnTriggerEnter2D(Collider2D c){
-
-		if (coolDownTimer >= coolDown) {
+		if (GetTeleportReady()) {
 			Teleport (c);
 			ResetCooldown ();
 			targetTeleporter.ResetCooldown ();
@@ -32,6 +33,33 @@ public class Teleporter : MonoBehaviour {
 		GameObject.Destroy (t.gameObject);
 	}
 	public void ResetCooldown(){
+		GetComponent<BoxCollider2D> ().enabled = false;
 		coolDownTimer = 0.0f;
+		sp.sprite = sb.sprites [1];
+		SetTeleportReady (false);
+		StartCoroutine("CoolDown");
+	}
+	public IEnumerator CoolDown(){
+		while (GetTeleportReady() == false) {
+			coolDownTimer += Time.deltaTime;
+			if (coolDownTimer >= coolDown) {
+				SetTeleportReady (true);
+				sp.sprite = sb.sprites [0];
+			}
+			yield return null;
+		}
+	}
+	public bool GetTeleportReady(){
+					return teleportReady;
+				}
+	public void SetTeleportReady(bool b){
+		teleportReady = b;
+		GetComponent<BoxCollider2D> ().enabled = true;
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(transform.position, targetTeleporter.transform.position);
+		Gizmos.DrawSphere((((transform.position + targetTeleporter.transform.position)/2) + targetTeleporter.transform.position)/2, .5f);
 	}
 }
