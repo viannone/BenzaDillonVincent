@@ -42,3 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FarthestBackdrop
+    uniqueID: 3104624777
+    locked: 0
+  - name: MediumBackdrop
+    uniqueID: 3489672945
+    locked: 0
+  - name: ClosestBackdrop
+    uniqueID: 2280604191
+    locked: 0
+  - name: RightBehindUserLayer
+    uniqueID: 2646030827
+    locked: 0
+  - name: UserLayer
+    uniqueID: 3651649185
+    locked: 0
+  - name: 1AboveUser
+    uniqueID: 2917997373
+    locked: 0
