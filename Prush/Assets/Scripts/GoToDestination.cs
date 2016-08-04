@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SimpleFollow : ArtificalIntelligenceBrain {
+public class GoToDestination : ArtificalIntelligenceBrain {
 
 
 	public float acceleration;
@@ -15,9 +15,9 @@ public class SimpleFollow : ArtificalIntelligenceBrain {
 	void FixedUpdate(){
 		int tpx = (int) transform.position.x;
 		int tpy = (int) transform.position.x;
-		if (target != null) {
-		tpx = (int)Mathf.Round (target.position.x);
-		tpy = (int)Mathf.Round (target.position.y);
+		if (destination != null) {
+		tpx = (int)Mathf.Round (destination.position.x);
+		tpy = (int)Mathf.Round (destination.position.y);
 		}
 		int px = (int) Mathf.Round(transform.position.x);
 		int py = (int) Mathf.Round(transform.position.y);

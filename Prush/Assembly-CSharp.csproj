@@ -47,11 +47,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ArtificialIntelligenceBrain.cs" />
      <Compile Include="Assets\Scripts\ArtificialIntelligenceTargetPlayer.cs" />
+     <Compile Include="Assets\Scripts\GoToDestination.cs" />
      <Compile Include="Assets\Scripts\HumanInput.cs" />
      <Compile Include="Assets\Scripts\NPCandPlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PathFindingNode.cs" />
+     <Compile Include="Assets\Scripts\PathManager.cs" />
      <Compile Include="Assets\Scripts\PointCameraAtMe.cs" />
+     <Compile Include="Assets\Scripts\PursueUsingPaths.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraFollow.cs" />
-     <Compile Include="Assets\Scripts\SimpleFollow.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

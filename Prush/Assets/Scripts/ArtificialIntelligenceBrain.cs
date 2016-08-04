@@ -2,6 +2,6 @@
 using System.Collections;
 
 public class ArtificalIntelligenceBrain : MonoBehaviour {
-	public Transform target;
+	public Transform destination;
 	public NPCandPlayerMovement movementScript;
 }

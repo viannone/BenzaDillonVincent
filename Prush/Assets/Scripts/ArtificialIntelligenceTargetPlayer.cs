@@ -12,17 +12,17 @@ public class ArtificialIntelligenceTargetPlayer : MonoBehaviour {
 
 	void FixedUpdate(){
 		try{
-			if (GetTarget() == null) {
-			SetTarget (GameObject.FindGameObjectWithTag ("Player").transform);
+			if (GetDestination() == null) {
+			SetDestination (GameObject.FindGameObjectWithTag ("Player").transform);
 			}
 		}catch(Exception e){}
 	}
-	public void SetTarget(Transform t){
-		brain.target = t;
+	public void SetDestination(Transform t){
+		brain.destination = t;
 	}
-	public Transform GetTarget(){
-		if (brain.target != null) {
-			return brain.target;
+	public Transform GetDestination(){
+		if (brain.destination != null) {
+			return brain.destination;
 		}
 		return null;
 	}
