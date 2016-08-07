@@ -1247,6 +1247,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011445560000, guid: 7053292d9030c449da5cc004265a0270,
     type: 2}
   m_PrefabInternal: {fileID: 361302754}
+--- !u!114 &672930623 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012414392832, guid: 7053292d9030c449da5cc004265a0270,
+    type: 2}
+  m_PrefabInternal: {fileID: 361302754}
+  m_Script: {fileID: 11500000, guid: 8c025782329b7421c906d77e60790105, type: 3}
+--- !u!114 &672930626 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000011379303300, guid: 7053292d9030c449da5cc004265a0270,
+    type: 2}
+  m_PrefabInternal: {fileID: 361302754}
+  m_Script: {fileID: 11500000, guid: ae86402c4bea34a61a95efd23c863632, type: 3}
 --- !u!114 &672930629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,8 +1271,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  timeBetweenSnapShotsInSeconds: 0.1
   timer: 0
+  timeTravelSerialNumber: 0
+  thingsToTurnOff:
+  - {fileID: 672930623}
+  - {fileID: 672930626}
 --- !u!1001 &714128479
 Prefab:
   m_ObjectHideFlags: 0
@@ -3581,6 +3596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fc5cdcb6fe6450388e1d15e12a21e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTravelEnabledObjects:
+  - {fileID: 0}
 --- !u!1001 &2091805090
 Prefab:
   m_ObjectHideFlags: 0
