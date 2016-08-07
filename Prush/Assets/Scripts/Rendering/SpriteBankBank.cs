@@ -2,6 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PathManager : MonoBehaviour {
-	public static float _maxJumpHeight = 4f;
+public class SpriteBankBank : MonoBehaviour {
+	public List<SpriteBank> spriteBanks;
 }

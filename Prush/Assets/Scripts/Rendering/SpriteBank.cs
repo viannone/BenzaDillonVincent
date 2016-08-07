@@ -4,6 +4,6 @@ using System.Collections.Generic;
 
 
 public class SpriteBank : MonoBehaviour {
-
 	public List<Sprite> sprites;
+
 }

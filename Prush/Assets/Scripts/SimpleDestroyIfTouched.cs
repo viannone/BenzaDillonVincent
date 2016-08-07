@@ -8,6 +8,9 @@ public class SimpleDestroyIfTouched : MonoBehaviour {
 		while(t.parent != null){
 			t = t.parent;
 		}
+		if (t.GetComponent<DeathScript> () != null) {
+			t.GetComponent<DeathScript> ().PlayerDeath ();
+		}
 		GameObject.Destroy(t.gameObject);
 	}
 }

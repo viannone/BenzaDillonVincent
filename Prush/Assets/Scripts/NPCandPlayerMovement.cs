@@ -19,18 +19,51 @@ public class NPCandPlayerMovement : MonoBehaviour {
 
 	public float boxCastWidth;
 	public float boxCastDistance;
+	private int debugCounter;
+
+
+	public SpriteManager spriteManager;
+	private SpriteRenderer spriteRenderer;
+	private int currentSprites = 0;
+
 	// Use this for initialization
 	void Start () {
 		rigi = GetComponent<Rigidbody2D> ();
-
+		ChangeSprites (2);
 		//so you can jump immediately upon instantiation
 		jumpTimer = jumpCooldownTime;
+		spriteRenderer = spriteManager.spriteRenderer;
+	}
+
+	void ChangeSprites(int i){
+		if (i != currentSprites) {
+			spriteManager.SetSprites (i);
+			debugCounter++;
+			currentSprites = i;
+		}
 	}
 
 	void FixedUpdate () {
 		onGround = IsGrounded ();
 		jumpTimer += Time.deltaTime;
 		rigi.velocity = new Vector2 (xInput * horizontalSpeed, rigi.velocity.y);
+		//change sprites
+		if (xInput > 0) {
+			spriteRenderer.flipX = false;
+		} else if (xInput < 0) {
+			spriteRenderer.flipX = true;
+		}
+
+
+		if (!onGround) {
+			ChangeSprites (2);
+		}
+		else if (onGround && Mathf.Abs(xInput) > 0) {
+			ChangeSprites (1);
+		} else if (onGround) {
+			ChangeSprites (0);
+			debugCounter++;
+		}
 		if (yInput > 0) {
 			if (onGround) {
 				if (jumpTimer >= jumpCooldownTime) {

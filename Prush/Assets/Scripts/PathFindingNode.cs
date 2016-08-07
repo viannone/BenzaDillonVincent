@@ -5,21 +5,20 @@ using System.Collections.Generic;
 public class PathFindingNode : MonoBehaviour {
 
 	GameObject[] allNodes;
-	public List<Transform> connectedNodes;
+	public Transform[] connectedNodes;
 
-	void Start(){
+	void Awake(){
 		GetAllNodes ();
-		ConnectToNodes ();
+		connectedNodes = new Transform[2];
+		ConnectToClosestNodes (2);
 	}
 
 	void OnDrawGizmos() {
+		//Draw colored lines b/w connected nodes
 		Gizmos.color = Color.blue;
 		Gizmos.DrawCube(transform.position, new Vector3(1,1,1));
 
-		for (int i = 0; i < connectedNodes.Count; i++) {
-			if (Mathf.Abs(connectedNodes [i].position.y - transform.position.y) > PathManager._maxJumpHeight) {
-				Gizmos.color = Color.red;
-			}
+		for (int i = 0; i < connectedNodes.Length; i++) {
 			Gizmos.DrawLine (transform.position, connectedNodes [i].position);
 			Gizmos.color = Color.blue;
 		}
@@ -30,12 +29,30 @@ public class PathFindingNode : MonoBehaviour {
 		allNodes = GameObject.FindGameObjectsWithTag ("Node");
 	}
 
-	public void ConnectToNodes(){
-		for(int i = 0; i < allNodes.Length; i++){
-			if(!Physics2D.Linecast(transform.position, allNodes[i].transform.position)){
-				connectedNodes.Add(allNodes[i].transform);
+	public void ConnectToClosestNodes(int numberOfNodesToConnectTo){
+		GameObject g = new GameObject();
+		connectedNodes[0] = g.transform;
+		Transform currentNode = allNodes [0].transform;
+		Vector2 him;
+		Vector2 me = transform.position;
+		if (currentNode == transform) {//if the first index is this node, then start with the next node
+			currentNode = allNodes [1].transform;
+		}
+		int startingPoint = 0;
+		for (int n = 1; n < (numberOfNodesToConnectTo + 1); n++) {
+			for (int i = 0; i < allNodes.Length; i++) {
+				if (allNodes [i] != gameObject && allNodes [i].transform.position != connectedNodes[0].position) {
+					him = allNodes [i].transform.position;
+					if ((him - me).sqrMagnitude < ((Vector2)currentNode.transform.position - me).sqrMagnitude) {
+						if (!Physics.Linecast (him, me)) {
+							currentNode = allNodes [i].transform;
+							startingPoint = i;
+						}
+					}
+				}
 			}
+			connectedNodes [n-1] = currentNode;
+			currentNode = allNodes [0].transform;
 		}
 	}
-}
-
+}		
