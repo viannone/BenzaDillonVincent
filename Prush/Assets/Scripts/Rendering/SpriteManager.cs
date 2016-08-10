@@ -8,6 +8,11 @@ public class SpriteManager : MonoBehaviour {
 	public SpriteRenderer spriteRenderer;
 	public float secondsToSpriteChange;
 
+	void Start(){
+		spriteBankBank = GetComponentInChildren<SpriteBankBank> ();
+		spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
+	}
+
 	public void SetSprites(int i){
 		StopCoroutine("IterateThroughSprites");
 		spriteBank = spriteBankBank.spriteBanks[i];
@@ -25,8 +30,14 @@ public class SpriteManager : MonoBehaviour {
 			if (timer >= secondsToSpriteChange) {
 				timer = 0.0f;
 				currentSprite++;
-				if(currentSprite == spriteBank.sprites.Count -1){
-					currentSprite = 0;
+				if(currentSprite == spriteBank.sprites.Count){
+					if (spriteBank.lastSpriteTerminal == true) {
+						currentSprite--;
+						spriteRenderer.sprite = spriteBank.sprites [currentSprite];
+						break;
+					} else {
+						currentSprite = 0;
+					}
 				}
 				spriteRenderer.sprite = spriteBank.sprites [currentSprite];
 			}yield return null;

@@ -17,7 +17,7 @@ public class TimeTravelController : MonoBehaviour {
 	public List<MonoBehaviour> thingsToTurnOff;
 
 	void Start(){
-		_timeBetweenSnapShotsInSeconds = .05f;
+		_timeBetweenSnapShotsInSeconds = .1f;
 		t = transform;
 		r = transform.GetComponent<Rigidbody2D> ();
 		timer = 0.0f;
@@ -31,14 +31,15 @@ public class TimeTravelController : MonoBehaviour {
 			timer += Time.deltaTime;
 			if (timer >= _timeBetweenSnapShotsInSeconds) {
 				if (index < amount) {
-					snapShots [index] = new SnapShot (t, r);
+					snapShots [index] = SnapShot._CreateNewSnapShot(t);
 					index++;
 				} else {
 					ShiftBack (snapShots);
-					snapShots [amount - 1] = new SnapShot (t, r);
+					snapShots [amount - 1] = SnapShot._CreateNewSnapShot(t);
 				}
 				timer = 0.0f;
-			}yield return new WaitForSeconds (.025f);
+			}yield return new WaitForFixedUpdate(); //TODO: make yield wait longer
+//			Debug.Log (index);
 		}
 	}
 	public void StopSnappingShots(){

@@ -1,26 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SnapShot{
+public class SnapShot : ScriptableObject{
 
-		Transform t;
-		Rigidbody2D r;
-
+		Transform trans;
 		Vector2 pos;
-		Vector2 vel;
 
-	public SnapShot(Transform a, Rigidbody2D b){
-		t = a;
-		r =  b;
+	public static SnapShot _CreateNewSnapShot(Transform t){
+		SnapShot OhSnap = CreateInstance<SnapShot> ();
+			OhSnap.trans = t;
+			OhSnap.pos = t.position;
 
-		pos = (Vector2) t.position;
-		vel = (Vector2) r.velocity;
-		}
+		return OhSnap;
+	}
+
 	public Vector2 GetPos(){
 		return pos;
 		}
-	//TODO: Switch to Vector2 if possible
-	public Vector2 GetVel(){
-		return vel;
-	}
 }

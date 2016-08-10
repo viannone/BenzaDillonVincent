@@ -29,7 +29,7 @@ public class Teleporter : MonoBehaviour {
 		while (t.parent != null) {
 			t = t.parent;
 		}
-		Instantiate (t, targetTeleporter.transform.position, Quaternion.identity);
+		Instantiate (t, targetTeleporter.transform.position, t.rotation);
 		GameObject.Destroy (t.gameObject);
 	}
 	public void ResetCooldown(){
@@ -57,9 +57,4 @@ public class Teleporter : MonoBehaviour {
 		GetComponent<BoxCollider2D> ().enabled = true;
 	}
 
-	void OnDrawGizmos() {
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(transform.position, targetTeleporter.transform.position);
-		Gizmos.DrawSphere((((transform.position + targetTeleporter.transform.position)/2) + targetTeleporter.transform.position)/2, .5f);
-	}
 }

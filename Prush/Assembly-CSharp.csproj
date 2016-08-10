@@ -45,32 +45,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AI\ArtificialIntelligenceBrain.cs" />
-     <Compile Include="Assets\Scripts\AI\ArtificialIntelligenceTargetPlayer.cs" />
-     <Compile Include="Assets\Scripts\AI\GoToDestination.cs" />
-     <Compile Include="Assets\Scripts\AI\PursueUsingPaths.cs" />
+     <Compile Include="Assets\Materials\TouchRotate.cs" />
      <Compile Include="Assets\Scripts\DeathScript.cs" />
-     <Compile Include="Assets\Scripts\HansSpriteManager.cs" />
-     <Compile Include="Assets\Scripts\HumanInput.cs" />
-     <Compile Include="Assets\Scripts\IdleSprites.cs" />
-     <Compile Include="Assets\Scripts\JumpingSprites.cs" />
+     <Compile Include="Assets\Scripts\Gravity\OrientGravityToPlayer.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\ArtificialIntelligenceBrain.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\ArtificialIntelligenceTargetPlayer.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\GoToDestination.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\HumanInput.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\NPCandPlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\PathFindingNode.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\PathManager.cs" />
+     <Compile Include="Assets\Scripts\Locomotion\PursueUsingPaths.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
-     <Compile Include="Assets\Scripts\NPCandPlayerMovement.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
-     <Compile Include="Assets\Scripts\PathFindingNode.cs" />
-     <Compile Include="Assets\Scripts\PathManager.cs" />
+     <Compile Include="Assets\Scripts\OnCollisionDisableKinematic.cs" />
      <Compile Include="Assets\Scripts\PointCameraAtMe.cs" />
-     <Compile Include="Assets\Scripts\RandomSpriteInstantiator.cs" />
+     <Compile Include="Assets\Scripts\Rendering\HansSpriteManager.cs" />
+     <Compile Include="Assets\Scripts\Rendering\IdleSprites.cs" />
+     <Compile Include="Assets\Scripts\Rendering\JumpingSprites.cs" />
+     <Compile Include="Assets\Scripts\Rendering\RandomSpriteInstantiator.cs" />
+     <Compile Include="Assets\Scripts\Rendering\RunningSprites.cs" />
      <Compile Include="Assets\Scripts\Rendering\SpriteBank.cs" />
      <Compile Include="Assets\Scripts\Rendering\SpriteBankBank.cs" />
      <Compile Include="Assets\Scripts\Rendering\SpriteManager.cs" />
-     <Compile Include="Assets\Scripts\RunningSprites.cs" />
+     <Compile Include="Assets\Scripts\RotateHans.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraFollow.cs" />
      <Compile Include="Assets\Scripts\SimpleDestroyIfTouched.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Time Travel\SnapShot.cs" />
      <Compile Include="Assets\Scripts\Time Travel\TimeMaster.cs" />
      <Compile Include="Assets\Scripts\Time Travel\TimeTravelController.cs" />
+     <Compile Include="Assets\TimeRewind.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
