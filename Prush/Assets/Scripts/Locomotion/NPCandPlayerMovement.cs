@@ -28,9 +28,11 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	private SpriteRenderer spriteRenderer;
 	private int currentSprites = 0;
 
+	public Transform lineCastPointA;
+	public Transform lineCastPointB;
+
 	// Use this for initialization
 	void Start () {
-		Debug.Log(transform.rotation.eulerAngles.z);
 		rigi = GetComponent<Rigidbody2D> ();
 		ChangeSprites (2);
 		//so you can jump immediately upon instantiation
@@ -50,10 +52,18 @@ public class NPCandPlayerMovement : MonoBehaviour {
 		onGround = IsGrounded ();
 	}
 	void FixedUpdate () {
-
 		jumpTimer += Time.deltaTime;
-		rigiY = transform.InverseTransformDirection (new Vector2(0, rigi.velocity.y));
-		rigi.velocity = transform.TransformDirection(new Vector2 (xInput * horizontalSpeed, rigiY.y));
+
+		//TODO: OPTIMIZE THIS BS
+		//1.Take current globalVelocity
+		//2.Translate that into local velocity
+		Vector2 newVel = transform.InverseTransformDirection(rigi.velocity);
+		//3.add whatever we need to add
+		newVel = new Vector2 (xInput * horizontalSpeed, newVel.y);
+		//4.translate that back to global velocity and apply
+		rigi.velocity = transform.TransformDirection(newVel);
+
+
 		//change sprites
 		if (xInput > 0) {
 			spriteRenderer.flipX = false;
@@ -87,7 +97,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	}
 
 	public bool IsGrounded(){
-		if (Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - yOffset), new Vector2(boxCastWidth, .01f), 0.0f, new Vector2(0, boxCastDirection), boxCastDistance)){
+		if (Physics2D.Linecast(lineCastPointA.position, lineCastPointB.position)){
 			return true;
 		}
 		else{
@@ -96,7 +106,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	}
 
 	public void Jump(){
-		rigi.velocity = new Vector2 (xInput * horizontalSpeed, jumpVelocity);
+		rigi.velocity = transform.TransformDirection(new Vector2 (xInput * horizontalSpeed, jumpVelocity));
 		ResetTimer ();
 	}
 	public void ResetTimer(){

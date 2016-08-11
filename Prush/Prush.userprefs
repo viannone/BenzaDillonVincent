@@ -1,15 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Locomotion/NPCandPlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Teleporter.cs">
     <Files>
-      <File FileName="Assets/Scripts/Locomotion/NPCandPlayerMovement.cs" Line="57" Column="1" />
+      <File FileName="Assets/Scripts/RotateHans.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/Locomotion/NPCandPlayerMovement.cs" Line="36" Column="1" />
       <File FileName="Assets/Scripts/Time Travel/TimeMaster.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PointCameraAtMe.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SimpleCameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Teleporter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Teleporter.cs" Line="32" Column="66" />
       <File FileName="Assets/Scripts/Time Travel/TimeTravelController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Time Travel/SnapShot.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Manager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/SpriteManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/SpriteBank.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/JumpingSprites.cs" Line="1" Column="1" />
+      <File FileName="Assets/Materials/TouchRotate.cs" Line="23" Column="47" />
+      <File FileName="Assets/TimeRewind.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Locomotion/ArtificialIntelligenceTargetPlayer.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Locomotion/PathFindingNode.cs" Line="41" Column="1" />
+      <File FileName="Assets/Scripts/Locomotion/HumanInput.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
