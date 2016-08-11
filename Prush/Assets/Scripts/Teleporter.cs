@@ -29,8 +29,7 @@ public class Teleporter : MonoBehaviour {
 		while (t.parent != null) {
 			t = t.parent;
 		}
-		Instantiate (t, targetTeleporter.transform.position, t.rotation);
-		GameObject.Destroy (t.gameObject);
+		t.position = targetTeleporter.transform.position;
 	}
 	public void ResetCooldown(){
 		GetComponent<BoxCollider2D> ().enabled = false;
