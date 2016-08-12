@@ -1,24 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Teleporter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Time Travel/TimeTravelController.cs">
     <Files>
+      <File FileName="Assets/Scripts/Locomotion/NPCandPlayerMovement.cs" Line="109" Column="21" />
       <File FileName="Assets/Scripts/Teleporter.cs" Line="32" Column="52" />
       <File FileName="Assets/Scripts/RotateHans.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Locomotion/NPCandPlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Time Travel/TimeMaster.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Time Travel/TimeMaster.cs" Line="169" Column="34" />
       <File FileName="Assets/Scripts/PointCameraAtMe.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SimpleCameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Time Travel/TimeTravelController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Time Travel/TimeTravelController.cs" Line="34" Column="1" />
       <File FileName="Assets/Scripts/Time Travel/SnapShot.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Manager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Rendering/SpriteManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Rendering/SpriteBank.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/SpriteManager.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/SpriteBank.cs" Line="15" Column="9" />
       <File FileName="Assets/Scripts/Rendering/JumpingSprites.cs" Line="1" Column="1" />
       <File FileName="Assets/Materials/TouchRotate.cs" Line="1" Column="1" />
       <File FileName="Assets/TimeRewind.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Locomotion/ArtificialIntelligenceTargetPlayer.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Locomotion/PathFindingNode.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Locomotion/HumanInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/HansSpriteManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Rendering/SpriteBankBank.cs" Line="1" Column="1" />
+      <File FileName="Assets/TimeStop.cs" Line="4" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

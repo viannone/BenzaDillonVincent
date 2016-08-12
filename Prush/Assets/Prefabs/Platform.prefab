@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010051344286}
   - 61: {fileID: 61000010819554476}
-  - 212: {fileID: 212000010268557360}
-  m_Layer: 0
+  - 212: {fileID: 212000011177419888}
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - 212: {fileID: 212000012505399422}
   - 114: {fileID: 114000011571973256}
   - 114: {fileID: 114000012303804694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010280537432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.63, y: 2.54, z: 0}
+  m_LocalPosition: {x: -53.95, y: -5.24, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -103,6 +103,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fa1546486f8db4174a7bd8bf1b6733f7, type: 3}
   - {fileID: 21300000, guid: 73a833cab39e348d7af5644144e167a2, type: 3}
   lastSpriteTerminal: 0
+  goToNextSpriteSequence: 0
+  nextSpriteSequence: {fileID: 0}
 --- !u!114 &114000012303804694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ce84f6a01fa4ad587c8c67eaa75836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212000010268557360
+--- !u!212 &212000011177419888
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

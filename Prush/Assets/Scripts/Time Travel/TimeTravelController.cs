@@ -38,7 +38,7 @@ public class TimeTravelController : MonoBehaviour {
 					snapShots [amount - 1] = SnapShot._CreateNewSnapShot(t);
 				}
 				timer = 0.0f;
-			}yield return new WaitForFixedUpdate(); //TODO: make yield wait longer
+			}yield return null; //TODO: make yield wait longer
 //			Debug.Log (index);
 		}
 	}

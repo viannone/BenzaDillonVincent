@@ -7,9 +7,11 @@ public class TimeMaster : MonoBehaviour {
 	public List<TimeTravelController> timeTravelEnabledObjects = new List<TimeTravelController>();
 	int serial = 0;
 	public GameObject Hans;
+	public SpriteManager spriteManager;
 
 	public void FindHans(){
 		Hans = GameObject.FindGameObjectWithTag ("Player");
+		spriteManager = Hans.GetComponent<SpriteManager> ();
 	}
 
 	public void AddToList(TimeTravelController t){
@@ -32,37 +34,74 @@ public class TimeMaster : MonoBehaviour {
 		if (Hans == null) {
 			FindHans ();
 		}
-		Hans.GetComponent<SpriteManager>().SetSprites(3);//3 is dedicated to time animations
+		spriteManager.ChangeSpritesByInt (3);//3 is reserved for time effects
 	}
 	public void RestoreTime(){
 		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
 			StopCoroutine ("IterateBackwardsThroughSnapShots");
 			RestoreComponents (timeTravelEnabledObjects [i]);
 		}
+		if (Hans == null) {
+			FindHans ();
+		}
+		spriteManager.ChangeSpritesByInt (0);//4 is stop time hold whatever
+	}
+
+	public void StopTime(){
+		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
+			TimeTravelController t = timeTravelEnabledObjects [i];
+			t.StopSnappingShots();
+			ToggleRigidbody (t);
+			ToggleThings (t, false);
+		//set Han's animation. No need to set it back; Hans will do it himself
+		}
+			if (Hans == null) {
+				FindHans ();
+			}
+			spriteManager.ChangeSpritesByInt (4);//for stop time
+	}
+	public void UnStopTime(){
+		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
+			TimeTravelController t = timeTravelEnabledObjects [i];
+			t.StartSnappingShots();
+			ToggleRigidbody (t);
+			ToggleThings (t, true);
+			//set Han's animation. No need to set it back; Hans will do it himself
+		}
+			if (Hans == null) {
+				FindHans ();
+			}
+			spriteManager.ChangeSpritesByInt (0);
+	}
+	public void ToggleRigidbody(TimeTravelController t){
+		Rigidbody2D rigi = t.GetComponent<Rigidbody2D> ();
+		rigi.isKinematic = !rigi.isKinematic;
 	}
 
 	public void DisableComponents(TimeTravelController t){
 		t.StopSnappingShots ();
-		t.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+		ToggleRigidbody (t);
 		Collider2D c = t.transform.GetComponent<Collider2D> ();
 		if(c != null){
 			c.enabled = false;
 		}
+		ToggleThings(t, false);
+	}
+
+	public void ToggleThings(TimeTravelController t, bool b){
 		for (int i = 0; i < t.thingsToTurnOff.Count; i++) {
-			t.thingsToTurnOff [i].enabled = false;
+			t.thingsToTurnOff [i].enabled = b;
 		}
 	}
 
 	public void RestoreComponents(TimeTravelController t){
 		t.StartSnappingShots ();
-		t.transform.GetComponent<Rigidbody2D>().isKinematic = false;
+		ToggleRigidbody (t);
 		Collider2D c = t.transform.GetComponent<Collider2D> ();
 		if(c != null){
 			c.enabled = true;
 		}
-		for (int i = 0; i < t.thingsToTurnOff.Count; i++) {
-			t.thingsToTurnOff [i].enabled = true;
-		}
+		ToggleThings(t, true);
 	}
 
 	public IEnumerator IterateBackwardsThroughSnapShots(TimeTravelController t){
@@ -95,14 +134,14 @@ public class TimeMaster : MonoBehaviour {
 	}
 		public void SetToSnapShot(TimeTravelController t, int i){
 			SnapShot s = t.GetSnapShot(i);
-		if (t == null) {
-			Debug.Log ("T is null and that's the problem");
-		}
-		if (s == null) {
-			Debug.Log ("S is null and that's the problem");
-		}
-		ApplySnapShot (t, s);
-			//TODO: ADD MORE!
+				if (t == null) {
+					Debug.Log ("T is null and that's the problem");
+				}
+				if (s == null) {
+					Debug.Log ("S is null and that's the problem");
+				}
+				ApplySnapShot (t, s);
+					//TODO: ADD MORE!
 		}
 		public void Start(){
 			StartCoroutine("CheckInput");
@@ -110,17 +149,31 @@ public class TimeMaster : MonoBehaviour {
 		
 	public IEnumerator CheckInput(){
 		bool rewinding = false;
+		bool timeStopped = false;
+		float timeRewind;
+		float timeStop;
 		while (true) {
-			if (Input.GetAxis ("Time") > 0) {
+			timeRewind = Input.GetAxis ("TimeRewind");
+			timeStop = Input.GetAxis ("TimeStop");
+
+			if (timeRewind > 0 && timeStop == 0) {
 				if (rewinding == false) {
 					rewinding = true;
 					RewindTime();
 				}
-			} else {
-				if (rewinding == true) {
+			} else if (rewinding == true) {
 					rewinding = false;
 					RestoreTime();
+			}
+
+			if (timeStop > 0 && timeRewind == 0) {
+				if (timeStopped == false) {
+					timeStopped = true;
+					StopTime();
 				}
+			} else if (timeStopped == true){
+				timeStopped = false;
+				UnStopTime();
 			}
 			yield return null;
 		}

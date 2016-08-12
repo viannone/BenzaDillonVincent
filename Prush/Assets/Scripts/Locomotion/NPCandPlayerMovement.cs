@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NPCandPlayerMovement : MonoBehaviour {
 	public Rigidbody2D rigi;
@@ -26,7 +27,8 @@ public class NPCandPlayerMovement : MonoBehaviour {
 
 	public SpriteManager spriteManager;
 	private SpriteRenderer spriteRenderer;
-	private int currentSprites = 0;
+	private int currentSprites;
+
 
 	public Transform lineCastPointA;
 	public Transform lineCastPointB;
@@ -34,7 +36,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigi = GetComponent<Rigidbody2D> ();
-		ChangeSprites (2);
+		ChangeSprites (0);
 		//so you can jump immediately upon instantiation
 		jumpTimer = jumpCooldownTime;
 		spriteRenderer = spriteManager.spriteRenderer;
@@ -43,8 +45,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 
 	void ChangeSprites(int i){
 		if (i != currentSprites) {
-			spriteManager.SetSprites (i);
-			debugCounter++;
+			spriteManager.ChangeSpritesByInt (i);
 			currentSprites = i;
 		}
 	}
