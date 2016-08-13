@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Graphics\TouchRotate.cs" />
+     <Compile Include="Assets\MoveOnTrigger.cs" />
      <Compile Include="Assets\Scripts\DeathScript.cs" />
      <Compile Include="Assets\Scripts\Gravity\OrientGravityToPlayer.cs" />
      <Compile Include="Assets\Scripts\Gravity\RotateHans.cs" />
@@ -78,6 +79,8 @@
      <Compile Include="Assets\Scripts\Time Travel\TimeCube.cs" />
      <Compile Include="Assets\Scripts\Time Travel\TimeMaster.cs" />
      <Compile Include="Assets\Scripts\Time Travel\TimeTravelController.cs" />
+     <Compile Include="Assets\TriggerWithTouch.cs" />
+     <Compile Include="Assets\TriggerableObject.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
