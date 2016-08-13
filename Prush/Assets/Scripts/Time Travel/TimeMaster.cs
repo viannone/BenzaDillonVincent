@@ -10,6 +10,7 @@ public class TimeMaster : MonoBehaviour {
 	int serial = 0;
 	public GameObject Hans;
 	public SpriteManager spriteManager;
+	private Rigidbody2D rigi;
 
 	public void FindHans(){
 		Hans = GameObject.FindGameObjectWithTag ("Player");
@@ -83,9 +84,11 @@ public class TimeMaster : MonoBehaviour {
 	}
 
 	public void DisableComponents(TimeTravelController t){
-		t.GetComponent<Rigidbody2D> ().isKinematic = true;
 		t.StopSnappingShots ();
 		ToggleThings(t, false);
+		rigi = t.GetComponent<Rigidbody2D> ();
+		rigi.gravityScale = 0;
+		rigi.velocity = new Vector2 (0, 0);
 	}
 
 	public void ToggleThings(TimeTravelController t, bool b){
@@ -95,8 +98,10 @@ public class TimeMaster : MonoBehaviour {
 	}
 
 	public void RestoreComponents(TimeTravelController t){
+		rigi = t.GetComponent<Rigidbody2D> ();
+		rigi.gravityScale = 1;
+		rigi.velocity = t.velocityFreeze;
 		t.StartSnappingShots ();
-		t.GetComponent<Rigidbody2D> ().isKinematic = false;
 		ToggleThings(t, true);
 	}
 

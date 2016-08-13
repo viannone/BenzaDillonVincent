@@ -13,6 +13,7 @@ public class TimeTravelController : MonoBehaviour {
 	public float timer;
 	public SnapShot[] snapShots = new SnapShot[amount];
 	public int timeTravelSerialNumber; //these start with 1
+	public Vector2 velocityFreeze; //this is used to restore velocity once it's taken away
 
 	public List<MonoBehaviour> thingsToTurnOff;
 
