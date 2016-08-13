@@ -69,5 +69,6 @@ public class TimeTravelController : MonoBehaviour {
 	public SnapShot[] GetSnapShots(){
 		return snapShots;
 	} 
+		
 
 }

@@ -8,12 +8,16 @@ public class Teleporter : MonoBehaviour {
 	private SpriteRenderer sp;
 	private SpriteBank sb;
 	private bool teleportReady;
+	private TimeMaster tm;
+
 
 	public void Start(){
 		SetTeleportReady (true);
 		coolDownTimer = coolDown;
 		sp = GetComponentInChildren<SpriteRenderer> ();
 		sb = GetComponentInChildren<SpriteBank> ();
+		tm = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<TimeMaster>();
+		tm.teleporters.Add (this);
 	}
 
 	public void OnTriggerEnter2D(Collider2D c){
@@ -51,6 +55,7 @@ public class Teleporter : MonoBehaviour {
 	public bool GetTeleportReady(){
 					return teleportReady;
 				}
+
 	public void SetTeleportReady(bool b){
 		teleportReady = b;
 		GetComponent<BoxCollider2D> ().enabled = true;

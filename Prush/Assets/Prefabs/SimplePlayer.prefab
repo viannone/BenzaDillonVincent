@@ -25,6 +25,7 @@ GameObject:
   - 114: {fileID: 114000012189321450}
   - 114: {fileID: 114000010044985008}
   - 114: {fileID: 114000013346308618}
+  - 114: {fileID: 114000012921533560}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -93,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011445560000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.01, z: 0}
+  m_LocalPosition: {x: -2.5126371, y: -2.097201, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -200,7 +201,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 65389da2b327d4b66bb7313f35e2fa65, type: 3}
   lastSpriteTerminal: 0
   goToNextSpriteSequence: 0
+  secondsToSpriteChange: 0.02
+  manager: {fileID: 0}
   nextSpriteSequence: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  currentSprite: 0
 --- !u!114 &114000010600761546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,6 +245,7 @@ MonoBehaviour:
   - {fileID: 114000010044985008}
   - {fileID: 114000012625715126}
   - {fileID: 114000013346308618}
+  - {fileID: 114000012921533560}
 --- !u!114 &114000011379303300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   horizontalSpeed: 8
-  jumpVelocity: 10
+  jumpVelocity: 20
   jumpTimer: 0
   jumpCooldownTime: 0.75
   onGround: 0
@@ -309,7 +315,11 @@ MonoBehaviour:
   - {fileID: 21300056, guid: c0ba734535daa416a84d34aa49d09c14, type: 3}
   lastSpriteTerminal: 0
   goToNextSpriteSequence: 0
+  secondsToSpriteChange: 0.02
+  manager: {fileID: 0}
   nextSpriteSequence: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  currentSprite: 0
 --- !u!114 &114000012406465116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +334,7 @@ MonoBehaviour:
   t: {fileID: 0}
   grav: {x: 0, y: 0}
   gravConstant: 0
+  newGrav: {x: 0, y: 0}
 --- !u!114 &114000012414392832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,7 +349,6 @@ MonoBehaviour:
   spriteBankBank: {fileID: 114000011213455774}
   spriteBank: {fileID: 0}
   spriteRenderer: {fileID: 212000012615676290}
-  secondsToSpriteChange: 0.042
 --- !u!114 &114000012625715126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +371,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: faebf558532e444559bf1d4a640b07e9, type: 3}
   lastSpriteTerminal: 1
   goToNextSpriteSequence: 0
+  secondsToSpriteChange: 0.02
+  manager: {fileID: 0}
   nextSpriteSequence: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  currentSprite: 0
 --- !u!114 &114000012692651050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +457,30 @@ MonoBehaviour:
   - {fileID: 114000011379303300}
   - {fileID: 114000012406465116}
   - {fileID: 114000010600761546}
+  stopTimeToggleRigi: 1
+  rewindTimeToggleRigi: 1
+  stopTimeToggleCollider: 1
+  rewindTimeToggleCollider: 1
+--- !u!114 &114000012921533560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010250031180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f595797bba89b4d09a529c6d92bfcf11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 3a50d91d2b7674c7abd526b3dbb589f9, type: 3}
+  lastSpriteTerminal: 0
+  goToNextSpriteSequence: 0
+  secondsToSpriteChange: 0
+  manager: {fileID: 0}
+  nextSpriteSequence: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  currentSprite: 0
 --- !u!114 &114000013346308618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -477,8 +515,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3160a2efc515846eeb6766ad5a1d3acd, type: 3}
   - {fileID: 21300000, guid: 0ae566fc33a744d7db170f24a6b02c26, type: 3}
   lastSpriteTerminal: 0
-  goToNextSpriteSequence: 0
-  nextSpriteSequence: {fileID: 0}
+  goToNextSpriteSequence: 1
+  secondsToSpriteChange: 0.02
+  manager: {fileID: 0}
+  nextSpriteSequence: {fileID: 114000012189321450}
+  spriteRenderer: {fileID: 0}
+  currentSprite: 0
 --- !u!212 &212000012615676290
 SpriteRenderer:
   m_ObjectHideFlags: 1

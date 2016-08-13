@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class TimeMaster : MonoBehaviour {
 
 	public List<TimeTravelController> timeTravelEnabledObjects = new List<TimeTravelController>();
+	public List<Teleporter> teleporters = new List<Teleporter> ();
+	public List<TimeCube> timeCubes = new List<TimeCube>();
 	int serial = 0;
 	public GameObject Hans;
 	public SpriteManager spriteManager;
@@ -26,9 +28,11 @@ public class TimeMaster : MonoBehaviour {
 	}
 
 	public void RewindTime(){
+		SetTeleportersEnabled (false);
 		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
-			DisableComponents (timeTravelEnabledObjects [i]);
-			StartCoroutine ("IterateBackwardsThroughSnapShots", timeTravelEnabledObjects[i]);
+			TimeTravelController t = timeTravelEnabledObjects [i];
+			DisableComponents (t);
+			StartCoroutine ("IterateBackwardsThroughSnapShots", t);
 		}
 		//set Han's animation. No need to set it back; Hans will do it himself
 		if (Hans == null) {
@@ -37,9 +41,11 @@ public class TimeMaster : MonoBehaviour {
 		spriteManager.ChangeSpritesByInt (3);//3 is reserved for time effects
 	}
 	public void RestoreTime(){
+		SetTeleportersEnabled (true);
 		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
 			StopCoroutine ("IterateBackwardsThroughSnapShots");
-			RestoreComponents (timeTravelEnabledObjects [i]);
+			TimeTravelController t = timeTravelEnabledObjects [i];
+			RestoreComponents (t);
 		}
 		if (Hans == null) {
 			FindHans ();
@@ -48,11 +54,12 @@ public class TimeMaster : MonoBehaviour {
 	}
 
 	public void StopTime(){
+		for (int i = 0; i < timeCubes.Count; i++) {
+			timeCubes [i].StopTime ();
+		}
 		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
 			TimeTravelController t = timeTravelEnabledObjects [i];
-			t.StopSnappingShots();
-			ToggleRigidbody (t);
-			ToggleThings (t, false);
+			DisableComponents (t);
 		//set Han's animation. No need to set it back; Hans will do it himself
 		}
 			if (Hans == null) {
@@ -61,11 +68,12 @@ public class TimeMaster : MonoBehaviour {
 			spriteManager.ChangeSpritesByInt (4);//for stop time
 	}
 	public void UnStopTime(){
+		for (int i = 0; i < timeCubes.Count; i++) {
+			timeCubes [i].UnStopTime ();
+		}
 		for (int i = 0; i < timeTravelEnabledObjects.Count; i++) {
 			TimeTravelController t = timeTravelEnabledObjects [i];
-			t.StartSnappingShots();
-			ToggleRigidbody (t);
-			ToggleThings (t, true);
+			RestoreComponents (t);
 			//set Han's animation. No need to set it back; Hans will do it himself
 		}
 			if (Hans == null) {
@@ -73,18 +81,10 @@ public class TimeMaster : MonoBehaviour {
 			}
 			spriteManager.ChangeSpritesByInt (0);
 	}
-	public void ToggleRigidbody(TimeTravelController t){
-		Rigidbody2D rigi = t.GetComponent<Rigidbody2D> ();
-		rigi.isKinematic = !rigi.isKinematic;
-	}
 
 	public void DisableComponents(TimeTravelController t){
+		t.GetComponent<Rigidbody2D> ().isKinematic = true;
 		t.StopSnappingShots ();
-		ToggleRigidbody (t);
-		Collider2D c = t.transform.GetComponent<Collider2D> ();
-		if(c != null){
-			c.enabled = false;
-		}
 		ToggleThings(t, false);
 	}
 
@@ -96,11 +96,7 @@ public class TimeMaster : MonoBehaviour {
 
 	public void RestoreComponents(TimeTravelController t){
 		t.StartSnappingShots ();
-		ToggleRigidbody (t);
-		Collider2D c = t.transform.GetComponent<Collider2D> ();
-		if(c != null){
-			c.enabled = true;
-		}
+		t.GetComponent<Rigidbody2D> ().isKinematic = false;
 		ToggleThings(t, true);
 	}
 
@@ -181,5 +177,11 @@ public class TimeMaster : MonoBehaviour {
 
 	public void ApplySnapShot(TimeTravelController t, SnapShot s){
 		t.transform.position = s.GetPos ();
+	}
+
+	public void SetTeleportersEnabled(bool b){
+		for(int i = 0; i < teleporters.Count; i++){
+			teleporters [i].GetComponent<Collider2D> ().enabled = b;
+		}
 	}
 }
