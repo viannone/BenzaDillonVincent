@@ -42,21 +42,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: FarthestBackdrop
+  - name: -6
+    uniqueID: 172290915
+    locked: 0
+  - name: -5
     uniqueID: 3104624777
     locked: 0
-  - name: MediumBackdrop
-    uniqueID: 3489672945
+  - name: -4
+    uniqueID: 282052843
     locked: 0
-  - name: ClosestBackdrop
+  - name: -3
+    uniqueID: 406037443
+    locked: 0
+  - name: -2
     uniqueID: 2280604191
     locked: 0
-  - name: RightBehindUserLayer
+  - name: Prush
+    uniqueID: 3489672945
+    locked: 0
+  - name: -1
     uniqueID: 2646030827
     locked: 0
   - name: UserLayer
     uniqueID: 3651649185
     locked: 0
-  - name: 1AboveUser
+  - name: 1
     uniqueID: 2917997373
+    locked: 0
+  - name: 2
+    uniqueID: 3949366569
+    locked: 0
+  - name: 3
+    uniqueID: 3594958577
     locked: 0

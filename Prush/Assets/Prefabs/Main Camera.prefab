@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010622740782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: -12.171588, y: 10.205991, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -106,8 +106,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  trackSpeed: 2
+  maxSpeed: 20
+  targetTime: 0.5
   cameraDistance: -30
+  bobY: 1
+  yBobAmnt: 0.3
+  yBobTime: 0.5
 --- !u!114 &114000012673471260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTravelEnabledObjects: []
+  teleporters: []
+  timeCubes: []
   Hans: {fileID: 0}
   spriteManager: {fileID: 0}
 --- !u!114 &114000013689832944
