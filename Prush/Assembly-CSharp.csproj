@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Graphics\TouchRotate.cs" />
+     <Compile Include="Assets\PauseGame.cs" />
      <Compile Include="Assets\Scripts\DeathScript.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Gravity\OrientGravityToPlayer.cs" />
      <Compile Include="Assets\Scripts\Gravity\RotateHans.cs" />
      <Compile Include="Assets\Scripts\Locomotion\ArtificialIntelligenceBrain.cs" />
@@ -74,6 +76,8 @@
      <Compile Include="Assets\Scripts\Rendering\TimeStop.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraFollow.cs" />
      <Compile Include="Assets\Scripts\SimpleDestroyIfTouched.cs" />
+     <Compile Include="Assets\Scripts\TargetFollow.cs" />
+     <Compile Include="Assets\Scripts\TargetSelect.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Time Travel\SnapShot.cs" />
      <Compile Include="Assets\Scripts\Time Travel\TimeCube.cs" />
@@ -81,7 +85,6 @@
      <Compile Include="Assets\Scripts\Time Travel\TimeTravelController.cs" />
      <Compile Include="Assets\Scripts\TriggerWithTouch.cs" />
      <Compile Include="Assets\Scripts\TriggerableObject.cs" />
-     <Compile Include="Assets\TargetFollow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
