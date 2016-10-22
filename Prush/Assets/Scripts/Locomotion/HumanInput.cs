@@ -8,10 +8,12 @@ public class HumanInput : MonoBehaviour {
 		movementScript = GetComponent<NPCandPlayerMovement> ();
 		movementScript.SetxInput (Input.GetAxis ("Horizontal"));
 		movementScript.SetyInput (Input.GetAxis ("Vertical"));
+		movementScript.SetAttackInput (Input.GetAxis ("Attack"));
 	}
 	void FixedUpdate(){
 		movementScript.SetxInput (Input.GetAxis ("Horizontal"));
 		movementScript.SetyInput (Input.GetAxis ("Vertical"));
+		movementScript.SetAttackInput (Input.GetAxis ("Attack"));
 	}
 
 }
