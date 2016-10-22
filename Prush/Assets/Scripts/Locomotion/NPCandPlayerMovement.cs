@@ -4,16 +4,20 @@ using System.Collections.Generic;
 
 public class NPCandPlayerMovement : MonoBehaviour {
 	public Rigidbody2D rigi;
+	public AttackScript attackScript;
 	public int horizontalSpeed;
 	public int jumpVelocity;
 	public float jumpTimer;
 	public float jumpCooldownTime;
+	public float attackTimer;
+	public float attackCooldownTime;
 	public bool onGround;
 
 	public float yOffset;
 
 	public float xInput;//values b/w -1, 1
 	public float yInput;
+	public float attackInput;
 
 	private float xVel;
 	private float yVel;
@@ -54,7 +58,7 @@ public class NPCandPlayerMovement : MonoBehaviour {
 	}
 	void FixedUpdate () {
 		jumpTimer += Time.deltaTime;
-
+		attackTimer += Time.deltaTime;
 		//TODO: OPTIMIZE THIS BS
 		//1.Take current globalVelocity
 		//2.Translate that into local velocity
@@ -89,12 +93,25 @@ public class NPCandPlayerMovement : MonoBehaviour {
 				}
 			}
 		}
+		if (attackInput > 0) {
+			attackTimer += Time.deltaTime;
+			if (attackTimer > attackCooldownTime) {
+				attackTimer = 0;
+				Attack ();
+			}
+		}
 	}
 	public void SetxInput(float f){
 		xInput = f;
 	}
 	public void SetyInput(float f){
 		yInput = f;
+	}
+	public void SetAttackInput (float i){
+		attackInput = i;
+	}
+	public void Attack(){
+		attackScript.Attack ();
 	}
 
 	public bool IsGrounded(){
