@@ -33,8 +33,9 @@ public class CharacterNervousSystem : MonoBehaviour {
 	public float ySpeedModifier = 1.0f;
 	public float damageModifier = 1.0f;
 	//color
-	string color;
-	string colorWeakness;
+	[Header("COLORS: Blue 0, R 1, G 2, P 3, W 4, Black 5, Br 6, Y7")]
+	int color;
+	int colorWeakness;
 	public string[] attacks = new string[3];
 	float colorDamageModifier = 1.0f;
 	public float health = 1000.0f;
@@ -53,7 +54,7 @@ public class CharacterNervousSystem : MonoBehaviour {
 			TakeDamage (a.value * damageModifier);
 		}
 		if (a.effect == true) {
-			if (incomingColor == "red") {
+			if (incomingColor == 1) {//RED
 				StartCoroutine (DOT (a.effectValue, a.effectTime));
 			} else if (incomingColor == "blue") {
 				StartCoroutine (Slow (a.effectValue, a.effectTime));
