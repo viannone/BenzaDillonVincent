@@ -56,9 +56,9 @@ public class CharacterNervousSystem : MonoBehaviour {
 		if (a.effect == true) {
 			if (incomingColor == 1) {//RED
 				StartCoroutine (DOT (a.effectValue, a.effectTime));
-			} else if (incomingColor == "blue") {
+			} else if (incomingColor == 0) {//BLUE
 				StartCoroutine (Slow (a.effectValue, a.effectTime));
-			} else if (incomingColor == "yellow") {
+			} else if (incomingColor == 7) {//YELLOW
 				StartCoroutine (Amplify (a.effectValue, a.effectTime));
 			}
 		}
